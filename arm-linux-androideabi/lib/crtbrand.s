@@ -20,5 +20,5 @@ abitag:
 	.word	1
 	.ascii	"Android\000"
 	.word	19
-	.ident	"GCC: (GNU) 4.9.0 20140320 (experimental)"
+	.ident	"GCC: (GNU) 4.9.0 20140328 (experimental)"
 	.section	.note.GNU-stack,"",%progbits
