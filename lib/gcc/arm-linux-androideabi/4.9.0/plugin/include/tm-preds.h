@@ -1,5 +1,5 @@
 /* Generated automatically by the program 'build/genpreds'
-   from the machine description file '/mnt/jenkins/workspace/linaro-android_toolchain-4.9-trunk/build/objdir/../build/../gcc/gcc-4.9/gcc/config/arm/arm.md'.  */
+   from the machine description file '/mnt/jenkins/workspace/linaro-android_toolchain-4.9-fsf/build/objdir/../build/../gcc/gcc-gcc-4_9-branch/gcc/config/arm/arm.md'.  */
 
 #ifndef GCC_TM_PREDS_H
 #define GCC_TM_PREDS_H
@@ -43,6 +43,8 @@ extern int arm_not_immediate_operand (rtx, enum machine_mode);
 extern int const0_operand (rtx, enum machine_mode);
 extern int arm_rhs_operand (rtx, enum machine_mode);
 extern int arm_rhsm_operand (rtx, enum machine_mode);
+extern int const_int_I_operand (rtx, enum machine_mode);
+extern int const_int_M_operand (rtx, enum machine_mode);
 extern int shift_amount_operand (rtx, enum machine_mode);
 extern int const_neon_scalar_shift_amount_operand (rtx, enum machine_mode);
 extern int ldrd_strd_offset_operand (rtx, enum machine_mode);
