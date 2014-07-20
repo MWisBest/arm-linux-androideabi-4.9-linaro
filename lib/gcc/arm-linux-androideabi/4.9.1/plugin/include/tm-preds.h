@@ -67,6 +67,7 @@ extern int shiftable_operator_strict_it (rtx, enum machine_mode);
 extern int logical_binary_operator (rtx, enum machine_mode);
 extern int commutative_binary_operator (rtx, enum machine_mode);
 extern int shift_operator (rtx, enum machine_mode);
+extern int shift_nomul_operator (rtx, enum machine_mode);
 extern int sat_shift_operator (rtx, enum machine_mode);
 extern int mult_operator (rtx, enum machine_mode);
 extern int thumb_16bit_operator (rtx, enum machine_mode);
