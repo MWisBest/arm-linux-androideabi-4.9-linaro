@@ -23359,35 +23359,43 @@ pattern to accomplish a certain task.
      The `ffs' built-in function of C always uses the mode which
      corresponds to the C data type `int'.
 
+`clrsbM2'
+     Count leading redundant sign bits.  Store into operand 0 the
+     number of redundant sign bits in operand 1, starting at the most
+     significant bit position.  A redundant sign bit is defined as any
+     sign bit after the first. As such, this count will be one less
+     than the count of leading sign bits.
+
 `clzM2'
-     Store into operand 0 the number of leading 0-bits in X, starting
-     at the most significant bit position.  If X is 0, the
-     `CLZ_DEFINED_VALUE_AT_ZERO' (*note Misc::) macro defines if the
-     result is undefined or has a useful value.  M is the mode of
+     Store into operand 0 the number of leading 0-bits in operand 1,
+     starting at the most significant bit position.  If operand 1 is 0,
+     the `CLZ_DEFINED_VALUE_AT_ZERO' (*note Misc::) macro defines if
+     the result is undefined or has a useful value.  M is the mode of
      operand 0; operand 1's mode is specified by the instruction
      pattern, and the compiler will convert the operand to that mode
      before generating the instruction.
 
 `ctzM2'
-     Store into operand 0 the number of trailing 0-bits in X, starting
-     at the least significant bit position.  If X is 0, the
-     `CTZ_DEFINED_VALUE_AT_ZERO' (*note Misc::) macro defines if the
-     result is undefined or has a useful value.  M is the mode of
+     Store into operand 0 the number of trailing 0-bits in operand 1,
+     starting at the least significant bit position.  If operand 1 is
+     0, the `CTZ_DEFINED_VALUE_AT_ZERO' (*note Misc::) macro defines if
+     the result is undefined or has a useful value.  M is the mode of
      operand 0; operand 1's mode is specified by the instruction
      pattern, and the compiler will convert the operand to that mode
      before generating the instruction.
 
 `popcountM2'
-     Store into operand 0 the number of 1-bits in X.  M is the mode of
-     operand 0; operand 1's mode is specified by the instruction
+     Store into operand 0 the number of 1-bits in operand 1.  M is the
+     mode of operand 0; operand 1's mode is specified by the instruction
      pattern, and the compiler will convert the operand to that mode
      before generating the instruction.
 
 `parityM2'
-     Store into operand 0 the parity of X, i.e. the number of 1-bits in
-     X modulo 2.  M is the mode of operand 0; operand 1's mode is
-     specified by the instruction pattern, and the compiler will convert
-     the operand to that mode before generating the instruction.
+     Store into operand 0 the parity of operand 1, i.e. the number of
+     1-bits in operand 1 modulo 2.  M is the mode of operand 0; operand
+     1's mode is specified by the instruction pattern, and the compiler
+     will convert the operand to that mode before generating the
+     instruction.
 
 `one_cmplM2'
      Store the bitwise-complement of operand 1 into operand 0.
@@ -46498,7 +46506,7 @@ Concept Index
                                                              (line    6)
 * ADDITIONAL_REGISTER_NAMES:             Instruction Output. (line   15)
 * addM3 instruction pattern:             Standard Names.     (line  263)
-* addMODEcc instruction pattern:         Standard Names.     (line 1069)
+* addMODEcc instruction pattern:         Standard Names.     (line 1077)
 * addptrM3 instruction pattern:          Standard Names.     (line  269)
 * addr_diff_vec:                         Side Effects.       (line  315)
 * addr_diff_vec, length of:              Insn Lengths.       (line   26)
@@ -46516,7 +46524,7 @@ Concept Index
 * aggregates as return values:           Aggregate Return.   (line    6)
 * alias:                                 Alias analysis.     (line    6)
 * ALL_REGS:                              Register Classes.   (line   17)
-* allocate_stack instruction pattern:    Standard Names.     (line 1386)
+* allocate_stack instruction pattern:    Standard Names.     (line 1394)
 * alternate entry points:                Insns.              (line  146)
 * anchored addresses:                    Anchored Addresses. (line    6)
 * and:                                   Arithmetic.         (line  158)
@@ -46636,30 +46644,30 @@ Concept Index
 * asterisk in template:                  Output Statement.   (line   29)
 * atan2M3 instruction pattern:           Standard Names.     (line  630)
 * atomic:                                GTY Options.        (line  258)
-* atomic_add_fetchMODE instruction pattern: Standard Names.  (line 1819)
-* atomic_addMODE instruction pattern:    Standard Names.     (line 1790)
-* atomic_and_fetchMODE instruction pattern: Standard Names.  (line 1819)
-* atomic_andMODE instruction pattern:    Standard Names.     (line 1790)
+* atomic_add_fetchMODE instruction pattern: Standard Names.  (line 1827)
+* atomic_addMODE instruction pattern:    Standard Names.     (line 1798)
+* atomic_and_fetchMODE instruction pattern: Standard Names.  (line 1827)
+* atomic_andMODE instruction pattern:    Standard Names.     (line 1798)
 * atomic_compare_and_swapMODE instruction pattern: Standard Names.
-                                                             (line 1726)
-* atomic_exchangeMODE instruction pattern: Standard Names.   (line 1778)
-* atomic_fetch_addMODE instruction pattern: Standard Names.  (line 1804)
-* atomic_fetch_andMODE instruction pattern: Standard Names.  (line 1804)
-* atomic_fetch_nandMODE instruction pattern: Standard Names. (line 1804)
-* atomic_fetch_orMODE instruction pattern: Standard Names.   (line 1804)
-* atomic_fetch_subMODE instruction pattern: Standard Names.  (line 1804)
-* atomic_fetch_xorMODE instruction pattern: Standard Names.  (line 1804)
-* atomic_loadMODE instruction pattern:   Standard Names.     (line 1757)
-* atomic_nand_fetchMODE instruction pattern: Standard Names. (line 1819)
-* atomic_nandMODE instruction pattern:   Standard Names.     (line 1790)
-* atomic_or_fetchMODE instruction pattern: Standard Names.   (line 1819)
-* atomic_orMODE instruction pattern:     Standard Names.     (line 1790)
-* atomic_storeMODE instruction pattern:  Standard Names.     (line 1767)
-* atomic_sub_fetchMODE instruction pattern: Standard Names.  (line 1819)
-* atomic_subMODE instruction pattern:    Standard Names.     (line 1790)
-* atomic_test_and_set instruction pattern: Standard Names.   (line 1836)
-* atomic_xor_fetchMODE instruction pattern: Standard Names.  (line 1819)
-* atomic_xorMODE instruction pattern:    Standard Names.     (line 1790)
+                                                             (line 1734)
+* atomic_exchangeMODE instruction pattern: Standard Names.   (line 1786)
+* atomic_fetch_addMODE instruction pattern: Standard Names.  (line 1812)
+* atomic_fetch_andMODE instruction pattern: Standard Names.  (line 1812)
+* atomic_fetch_nandMODE instruction pattern: Standard Names. (line 1812)
+* atomic_fetch_orMODE instruction pattern: Standard Names.   (line 1812)
+* atomic_fetch_subMODE instruction pattern: Standard Names.  (line 1812)
+* atomic_fetch_xorMODE instruction pattern: Standard Names.  (line 1812)
+* atomic_loadMODE instruction pattern:   Standard Names.     (line 1765)
+* atomic_nand_fetchMODE instruction pattern: Standard Names. (line 1827)
+* atomic_nandMODE instruction pattern:   Standard Names.     (line 1798)
+* atomic_or_fetchMODE instruction pattern: Standard Names.   (line 1827)
+* atomic_orMODE instruction pattern:     Standard Names.     (line 1798)
+* atomic_storeMODE instruction pattern:  Standard Names.     (line 1775)
+* atomic_sub_fetchMODE instruction pattern: Standard Names.  (line 1827)
+* atomic_subMODE instruction pattern:    Standard Names.     (line 1798)
+* atomic_test_and_set instruction pattern: Standard Names.   (line 1844)
+* atomic_xor_fetchMODE instruction pattern: Standard Names.  (line 1827)
+* atomic_xorMODE instruction pattern:    Standard Names.     (line 1798)
 * attr <1>:                              Tagging Insns.      (line   54)
 * attr:                                  Expressions.        (line  165)
 * attr_flag:                             Expressions.        (line  140)
@@ -46723,7 +46731,7 @@ Concept Index
 * BLOCK_FOR_INSN, gimple_bb:             Maintaining the CFG.
                                                              (line   29)
 * BLOCK_REG_PADDING:                     Register Arguments. (line  230)
-* blockage instruction pattern:          Standard Names.     (line 1589)
+* blockage instruction pattern:          Standard Names.     (line 1597)
 * Blocks:                                Blocks.             (line    6)
 * bool:                                  Misc.               (line  890)
 * BOOL_TYPE_SIZE:                        Type Layout.        (line   44)
@@ -46751,10 +46759,10 @@ Concept Index
                                                              (line   21)
 * build6:                                Macros and Functions.
                                                              (line   22)
-* builtin_longjmp instruction pattern:   Standard Names.     (line 1486)
+* builtin_longjmp instruction pattern:   Standard Names.     (line 1494)
 * builtin_setjmp_receiver instruction pattern: Standard Names.
-                                                             (line 1476)
-* builtin_setjmp_setup instruction pattern: Standard Names.  (line 1465)
+                                                             (line 1484)
+* builtin_setjmp_setup instruction pattern: Standard Names.  (line 1473)
 * byte_mode:                             Machine Modes.      (line  359)
 * BYTES_BIG_ENDIAN:                      Storage Layout.     (line   24)
 * BYTES_BIG_ENDIAN, effect on subreg:    Regs and Memory.    (line  221)
@@ -46764,7 +46772,7 @@ Concept Index
 * c_register_pragma_with_expansion:      Misc.               (line  412)
 * call <1>:                              Side Effects.       (line   92)
 * call:                                  Flags.              (line  221)
-* call instruction pattern:              Standard Names.     (line 1126)
+* call instruction pattern:              Standard Names.     (line 1134)
 * call usage:                            Calls.              (line   10)
 * call, in call_insn:                    Flags.              (line   33)
 * call, in mem:                          Flags.              (line   81)
@@ -46783,13 +46791,13 @@ Concept Index
 * call_insn and /u or /i:                Flags.              (line   29)
 * call_insn and /v:                      Flags.              (line   44)
 * CALL_INSN_FUNCTION_USAGE:              Insns.              (line  101)
-* call_pop instruction pattern:          Standard Names.     (line 1154)
+* call_pop instruction pattern:          Standard Names.     (line 1162)
 * CALL_POPS_ARGS:                        Stack Arguments.    (line  139)
 * CALL_REALLY_USED_REGISTERS:            Register Basics.    (line   46)
 * CALL_USED_REGISTERS:                   Register Basics.    (line   35)
 * call_used_regs:                        Register Basics.    (line   59)
-* call_value instruction pattern:        Standard Names.     (line 1146)
-* call_value_pop instruction pattern:    Standard Names.     (line 1154)
+* call_value instruction pattern:        Standard Names.     (line 1154)
+* call_value_pop instruction pattern:    Standard Names.     (line 1162)
 * CALLER_SAVE_PROFITABLE:                Caller Saves.       (line   11)
 * calling conventions:                   Stack and Calling.  (line    6)
 * calling functions in RTL:              Calls.              (line    6)
@@ -46802,12 +46810,12 @@ Concept Index
 * canonicalization of instructions:      Insn Canonicalizations.
                                                              (line    6)
 * canonicalize_funcptr_for_compare instruction pattern: Standard Names.
-                                                             (line 1317)
+                                                             (line 1325)
 * CASE_VECTOR_MODE:                      Misc.               (line   27)
 * CASE_VECTOR_PC_RELATIVE:               Misc.               (line   40)
 * CASE_VECTOR_SHORTEN_MODE:              Misc.               (line   31)
-* casesi instruction pattern:            Standard Names.     (line 1248)
-* cbranchMODE4 instruction pattern:      Standard Names.     (line 1115)
+* casesi instruction pattern:            Standard Names.     (line 1256)
+* cbranchMODE4 instruction pattern:      Standard Names.     (line 1123)
 * cc0 <1>:                               CC0 Condition Codes.
                                                              (line    6)
 * cc0:                                   Regs and Memory.    (line  307)
@@ -46842,7 +46850,7 @@ Concept Index
 * chain_prev:                            GTY Options.        (line  200)
 * change_address:                        Standard Names.     (line   47)
 * CHAR_TYPE_SIZE:                        Type Layout.        (line   39)
-* check_stack instruction pattern:       Standard Names.     (line 1404)
+* check_stack instruction pattern:       Standard Names.     (line 1412)
 * CHImode:                               Machine Modes.      (line  205)
 * CILK_PLUS:                             Cilk Plus Transformation.
                                                              (line    6)
@@ -46862,17 +46870,18 @@ Concept Index
 * CLEANUP_STMT:                          Statements for C++. (line    6)
 * Cleanups:                              Cleanups.           (line    6)
 * CLEAR_BY_PIECES_P:                     Costs.              (line  188)
-* clear_cache instruction pattern:       Standard Names.     (line 1896)
+* clear_cache instruction pattern:       Standard Names.     (line 1904)
 * CLEAR_INSN_CACHE:                      Trampolines.        (line   99)
 * CLEAR_RATIO:                           Costs.              (line  176)
 * clobber:                               Side Effects.       (line  106)
 * clrsb:                                 Arithmetic.         (line  216)
+* clrsbM2 instruction pattern:           Standard Names.     (line  729)
 * clz:                                   Arithmetic.         (line  223)
 * CLZ_DEFINED_VALUE_AT_ZERO:             Misc.               (line  305)
-* clzM2 instruction pattern:             Standard Names.     (line  729)
-* cmpmemM instruction pattern:           Standard Names.     (line  869)
-* cmpstrM instruction pattern:           Standard Names.     (line  848)
-* cmpstrnM instruction pattern:          Standard Names.     (line  835)
+* clzM2 instruction pattern:             Standard Names.     (line  736)
+* cmpmemM instruction pattern:           Standard Names.     (line  877)
+* cmpstrM instruction pattern:           Standard Names.     (line  856)
+* cmpstrnM instruction pattern:          Standard Names.     (line  843)
 * code generation RTL sequences:         Expander Definitions.
                                                              (line    6)
 * code iterators in .md files:           Code Iterators.     (line    6)
@@ -47027,12 +47036,12 @@ Concept Index
 * CRTSTUFF_T_CFLAGS:                     Target Fragment.    (line   15)
 * CRTSTUFF_T_CFLAGS_S:                   Target Fragment.    (line   19)
 * CSImode:                               Machine Modes.      (line  205)
-* cstoreMODE4 instruction pattern:       Standard Names.     (line 1076)
+* cstoreMODE4 instruction pattern:       Standard Names.     (line 1084)
 * CTImode:                               Machine Modes.      (line  205)
-* ctrapMM4 instruction pattern:          Standard Names.     (line 1558)
+* ctrapMM4 instruction pattern:          Standard Names.     (line 1566)
 * ctz:                                   Arithmetic.         (line  231)
 * CTZ_DEFINED_VALUE_AT_ZERO:             Misc.               (line  306)
-* ctzM2 instruction pattern:             Standard Names.     (line  738)
+* ctzM2 instruction pattern:             Standard Names.     (line  745)
 * CUMULATIVE_ARGS:                       Register Arguments. (line  128)
 * current_function_is_leaf:              Leaf Functions.     (line   51)
 * current_function_uses_only_leaf_regs:  Leaf Functions.     (line   51)
@@ -47147,7 +47156,7 @@ Concept Index
 * declarations, RTL:                     RTL Declarations.   (line    6)
 * DECLARE_LIBRARY_RENAMES:               Library Calls.      (line    9)
 * decrement_and_branch_until_zero instruction pattern: Standard Names.
-                                                             (line 1286)
+                                                             (line 1294)
 * default:                               GTY Options.        (line   82)
 * default_file_start:                    File Framework.     (line    8)
 * DEFAULT_GDB_EXTENSIONS:                DBX Options.        (line   18)
@@ -47251,8 +47260,8 @@ Concept Index
 * DO_COND:                               Statements for C++. (line    6)
 * DO_STMT:                               Statements for C++. (line    6)
 * DOLLARS_IN_IDENTIFIERS:                Misc.               (line  454)
-* doloop_begin instruction pattern:      Standard Names.     (line 1308)
-* doloop_end instruction pattern:        Standard Names.     (line 1296)
+* doloop_begin instruction pattern:      Standard Names.     (line 1316)
+* doloop_end instruction pattern:        Standard Names.     (line 1304)
 * DONE:                                  Expander Definitions.
                                                              (line   77)
 * DONT_USE_BUILTIN_SETJMP:               Exception Region Output.
@@ -47302,7 +47311,7 @@ Concept Index
                                                              (line   20)
 * EH_FRAME_SECTION_NAME:                 Exception Region Output.
                                                              (line   10)
-* eh_return instruction pattern:         Standard Names.     (line 1492)
+* eh_return instruction pattern:         Standard Names.     (line 1500)
 * EH_RETURN_DATA_REGNO:                  Exception Handling. (line    7)
 * EH_RETURN_HANDLER_RTX:                 Exception Handling. (line   39)
 * EH_RETURN_STACKADJ_RTX:                Exception Handling. (line   22)
@@ -47337,7 +47346,7 @@ Concept Index
 * enumerations:                          Constant Definitions.
                                                              (line   49)
 * epilogue:                              Function Entry.     (line    6)
-* epilogue instruction pattern:          Standard Names.     (line 1530)
+* epilogue instruction pattern:          Standard Names.     (line 1538)
 * EPILOGUE_USES:                         Function Entry.     (line  152)
 * eq:                                    Comparisons.        (line   52)
 * eq and attributes:                     Expressions.        (line   85)
@@ -47351,7 +47360,7 @@ Concept Index
 * examining SSA_NAMEs:                   SSA.                (line  214)
 * exception handling <1>:                Exception Handling. (line    6)
 * exception handling:                    Edges.              (line   96)
-* exception_receiver instruction pattern: Standard Names.    (line 1456)
+* exception_receiver instruction pattern: Standard Names.    (line 1464)
 * exclamation point:                     Multi-Alternative.  (line   47)
 * exclusion_set:                         Processor pipeline description.
                                                              (line  224)
@@ -47371,19 +47380,19 @@ Concept Index
 * EXPR_STMT_EXPR:                        Statements for C++. (line    6)
 * expression:                            Expression trees.   (line    6)
 * expression codes:                      RTL Objects.        (line   47)
-* extendMN2 instruction pattern:         Standard Names.     (line  927)
+* extendMN2 instruction pattern:         Standard Names.     (line  935)
 * extensible constraints:                Simple Constraints. (line  173)
 * EXTRA_ADDRESS_CONSTRAINT:              Old Constraints.    (line  123)
 * EXTRA_CONSTRAINT:                      Old Constraints.    (line   74)
 * EXTRA_CONSTRAINT_STR:                  Old Constraints.    (line   95)
 * EXTRA_MEMORY_CONSTRAINT:               Old Constraints.    (line  100)
 * EXTRA_SPECS:                           Driver.             (line  183)
-* extv instruction pattern:              Standard Names.     (line 1018)
-* extvM instruction pattern:             Standard Names.     (line  963)
-* extvmisalignM instruction pattern:     Standard Names.     (line  973)
-* extzv instruction pattern:             Standard Names.     (line 1036)
-* extzvM instruction pattern:            Standard Names.     (line  987)
-* extzvmisalignM instruction pattern:    Standard Names.     (line  990)
+* extv instruction pattern:              Standard Names.     (line 1026)
+* extvM instruction pattern:             Standard Names.     (line  971)
+* extvmisalignM instruction pattern:     Standard Names.     (line  981)
+* extzv instruction pattern:             Standard Names.     (line 1044)
+* extzvM instruction pattern:            Standard Names.     (line  995)
+* extzvmisalignM instruction pattern:    Standard Names.     (line  998)
 * F in constraint:                       Simple Constraints. (line   94)
 * FAIL:                                  Expander Definitions.
                                                              (line   83)
@@ -47418,7 +47427,7 @@ Concept Index
 * fix:                                   Conversions.        (line   66)
 * FIX_TRUNC_EXPR:                        Unary and Binary Expressions.
                                                              (line    6)
-* fix_truncMN2 instruction pattern:      Standard Names.     (line  914)
+* fix_truncMN2 instruction pattern:      Standard Names.     (line  922)
 * fixed register:                        Register Basics.    (line   15)
 * fixed-point fractional library:        Fixed-point fractional library routines.
                                                              (line    6)
@@ -47429,9 +47438,9 @@ Concept Index
 * FIXED_POINT_TYPE:                      Types.              (line    6)
 * FIXED_REGISTERS:                       Register Basics.    (line   15)
 * fixed_regs:                            Register Basics.    (line   59)
-* fixMN2 instruction pattern:            Standard Names.     (line  894)
-* fixuns_truncMN2 instruction pattern:   Standard Names.     (line  918)
-* fixunsMN2 instruction pattern:         Standard Names.     (line  903)
+* fixMN2 instruction pattern:            Standard Names.     (line  902)
+* fixuns_truncMN2 instruction pattern:   Standard Names.     (line  926)
+* fixunsMN2 instruction pattern:         Standard Names.     (line  911)
 * flags in RTL expression:               Flags.              (line    6)
 * float:                                 Conversions.        (line   58)
 * FLOAT_EXPR:                            Unary and Binary Expressions.
@@ -47445,8 +47454,8 @@ Concept Index
 * FLOAT_WORDS_BIG_ENDIAN, (lack of) effect on subreg: Regs and Memory.
                                                              (line  226)
 * floating point and cross compilation:  Floating Point.     (line    6)
-* floatMN2 instruction pattern:          Standard Names.     (line  886)
-* floatunsMN2 instruction pattern:       Standard Names.     (line  890)
+* floatMN2 instruction pattern:          Standard Names.     (line  894)
+* floatunsMN2 instruction pattern:       Standard Names.     (line  898)
 * FLOOR_DIV_EXPR:                        Unary and Binary Expressions.
                                                              (line    6)
 * FLOOR_MOD_EXPR:                        Unary and Binary Expressions.
@@ -47471,8 +47480,8 @@ Concept Index
 * FRACT_TYPE_SIZE:                       Type Layout.        (line   68)
 * fractional types:                      Fixed-point fractional library routines.
                                                              (line    6)
-* fractMN2 instruction pattern:          Standard Names.     (line  936)
-* fractunsMN2 instruction pattern:       Standard Names.     (line  951)
+* fractMN2 instruction pattern:          Standard Names.     (line  944)
+* fractunsMN2 instruction pattern:       Standard Names.     (line  959)
 * frame layout:                          Frame Layout.       (line    6)
 * FRAME_ADDR_RTX:                        Frame Layout.       (line  116)
 * FRAME_GROWS_DOWNWARD:                  Frame Layout.       (line   31)
@@ -47492,7 +47501,7 @@ Concept Index
 * frame_related, in symbol_ref:          Flags.              (line  165)
 * frequency, count, BB_FREQ_BASE:        Profile information.
                                                              (line   30)
-* ftruncM2 instruction pattern:          Standard Names.     (line  909)
+* ftruncM2 instruction pattern:          Standard Names.     (line  917)
 * function <1>:                          Functions for C++.  (line    6)
 * function:                              Functions.          (line    6)
 * function call conventions:             Interface.          (line    6)
@@ -47564,7 +47573,7 @@ Concept Index
 * GET_RTX_FORMAT:                        RTL Classes.        (line  131)
 * GET_RTX_LENGTH:                        RTL Classes.        (line  128)
 * get_thread_pointerMODE instruction pattern: Standard Names.
-                                                             (line 1867)
+                                                             (line 1875)
 * geu:                                   Comparisons.        (line   72)
 * geu and attributes:                    Expressions.        (line   85)
 * GGC:                                   Type Information.   (line    6)
@@ -48154,7 +48163,7 @@ Concept Index
 * INCOMING_RETURN_ADDR_RTX:              Frame Layout.       (line  139)
 * INCOMING_STACK_BOUNDARY:               Storage Layout.     (line  156)
 * INDEX_REG_CLASS:                       Register Classes.   (line  143)
-* indirect_jump instruction pattern:     Standard Names.     (line 1244)
+* indirect_jump instruction pattern:     Standard Names.     (line 1252)
 * indirect_operand:                      Machine-Independent Predicates.
                                                              (line   71)
 * INDIRECT_REF:                          Storage References. (line    6)
@@ -48210,9 +48219,9 @@ Concept Index
                                                              (line    6)
 * instruction patterns:                  Patterns.           (line    6)
 * instruction splitting:                 Insn Splitting.     (line    6)
-* insv instruction pattern:              Standard Names.     (line 1042)
-* insvM instruction pattern:             Standard Names.     (line  994)
-* insvmisalignM instruction pattern:     Standard Names.     (line 1004)
+* insv instruction pattern:              Standard Names.     (line 1050)
+* insvM instruction pattern:             Standard Names.     (line 1002)
+* insvmisalignM instruction pattern:     Standard Names.     (line 1012)
 * int iterators in .md files:            Int Iterators.      (line    6)
 * INT16_TYPE:                            Type Layout.        (line  254)
 * INT32_TYPE:                            Type Layout.        (line  255)
@@ -48266,7 +48275,7 @@ Concept Index
 * JMP_BUF_SIZE:                          Exception Region Output.
                                                              (line   84)
 * jump:                                  Flags.              (line  286)
-* jump instruction pattern:              Standard Names.     (line 1121)
+* jump instruction pattern:              Standard Names.     (line 1129)
 * jump instruction patterns:             Jump Patterns.      (line    6)
 * jump instructions and set:             Side Effects.       (line   56)
 * jump, in call_insn:                    Flags.              (line  161)
@@ -48320,7 +48329,7 @@ Concept Index
 * LE_EXPR:                               Unary and Binary Expressions.
                                                              (line    6)
 * leaf functions:                        Leaf Functions.     (line    6)
-* leaf_function_p:                       Standard Names.     (line 1206)
+* leaf_function_p:                       Standard Names.     (line 1214)
 * LEAF_REG_REMAP:                        Leaf Functions.     (line   39)
 * LEAF_REGISTERS:                        Leaf Functions.     (line   25)
 * left rotate:                           Arithmetic.         (line  195)
@@ -48489,15 +48498,15 @@ Concept Index
 * MEM_POINTER:                           Flags.              (line   85)
 * MEM_READONLY_P:                        Flags.              (line  134)
 * MEM_REF:                               Storage References. (line    6)
-* mem_signal_fenceMODE instruction pattern: Standard Names.  (line 1855)
+* mem_signal_fenceMODE instruction pattern: Standard Names.  (line 1863)
 * MEM_SIZE:                              Special Accessors.  (line   40)
 * MEM_SIZE_KNOWN_P:                      Special Accessors.  (line   36)
-* mem_thread_fenceMODE instruction pattern: Standard Names.  (line 1847)
+* mem_thread_fenceMODE instruction pattern: Standard Names.  (line 1855)
 * MEM_VOLATILE_P:                        Flags.              (line   76)
 * memory model:                          Memory model.       (line    6)
 * memory reference, nonoffsettable:      Simple Constraints. (line  256)
 * memory references in constraints:      Simple Constraints. (line   17)
-* memory_barrier instruction pattern:    Standard Names.     (line 1596)
+* memory_barrier instruction pattern:    Standard Names.     (line 1604)
 * MEMORY_MOVE_COST:                      Costs.              (line   54)
 * memory_operand:                        Machine-Independent Predicates.
                                                              (line   58)
@@ -48555,10 +48564,10 @@ Concept Index
 * MOVE_MAX_PIECES:                       Costs.              (line  171)
 * MOVE_RATIO:                            Costs.              (line  149)
 * movM instruction pattern:              Standard Names.     (line   11)
-* movmemM instruction pattern:           Standard Names.     (line  762)
+* movmemM instruction pattern:           Standard Names.     (line  770)
 * movmisalignM instruction pattern:      Standard Names.     (line  126)
-* movMODEcc instruction pattern:         Standard Names.     (line 1056)
-* movstr instruction pattern:            Standard Names.     (line  797)
+* movMODEcc instruction pattern:         Standard Names.     (line 1064)
+* movstr instruction pattern:            Standard Names.     (line  805)
 * movstrictM instruction pattern:        Standard Names.     (line  120)
 * msubMN4 instruction pattern:           Standard Names.     (line  478)
 * mulhisi3 instruction pattern:          Standard Names.     (line  431)
@@ -48639,13 +48648,13 @@ Concept Index
 * nonimmediate_operand:                  Machine-Independent Predicates.
                                                              (line  101)
 * nonlocal goto handler:                 Edges.              (line  172)
-* nonlocal_goto instruction pattern:     Standard Names.     (line 1428)
+* nonlocal_goto instruction pattern:     Standard Names.     (line 1436)
 * nonlocal_goto_receiver instruction pattern: Standard Names.
-                                                             (line 1445)
+                                                             (line 1453)
 * nonmemory_operand:                     Machine-Independent Predicates.
                                                              (line   97)
 * nonoffsettable memory reference:       Simple Constraints. (line  256)
-* nop instruction pattern:               Standard Names.     (line 1239)
+* nop instruction pattern:               Standard Names.     (line 1247)
 * NOP_EXPR:                              Unary and Binary Expressions.
                                                              (line    6)
 * normal predicates:                     Predicates.         (line   31)
@@ -48696,7 +48705,7 @@ Concept Index
 * OMP_SECTION:                           OpenMP.             (line    6)
 * OMP_SECTIONS:                          OpenMP.             (line    6)
 * OMP_SINGLE:                            OpenMP.             (line    6)
-* one_cmplM2 instruction pattern:        Standard Names.     (line  759)
+* one_cmplM2 instruction pattern:        Standard Names.     (line  767)
 * operand access:                        Accessors.          (line    6)
 * Operand Access Routines:               SSA Operands.       (line  119)
 * operand constraints:                   Constraints.        (line    6)
@@ -48761,7 +48770,7 @@ Concept Index
 * parameters, precompiled headers:       PCH Target.         (line    6)
 * paramN_is:                             GTY Options.        (line  136)
 * parity:                                Arithmetic.         (line  243)
-* parityM2 instruction pattern:          Standard Names.     (line  753)
+* parityM2 instruction pattern:          Standard Names.     (line  760)
 * PARM_BOUNDARY:                         Storage Layout.     (line  135)
 * PARM_DECL:                             Declarations.       (line    6)
 * PARSE_LDD_OUTPUT:                      Macros for Initialization.
@@ -48814,7 +48823,7 @@ Concept Index
 * pop_operand:                           Machine-Independent Predicates.
                                                              (line   88)
 * popcount:                              Arithmetic.         (line  239)
-* popcountM2 instruction pattern:        Standard Names.     (line  747)
+* popcountM2 instruction pattern:        Standard Names.     (line  754)
 * pops_args:                             Function Entry.     (line  106)
 * portability:                           Portability.        (line    6)
 * position independent code:             PIC.                (line    6)
@@ -48848,7 +48857,7 @@ Concept Index
 * PREFERRED_STACK_BOUNDARY:              Storage Layout.     (line  149)
 * prefetch:                              Side Effects.       (line  325)
 * prefetch and /v:                       Flags.              (line  214)
-* prefetch instruction pattern:          Standard Names.     (line 1573)
+* prefetch instruction pattern:          Standard Names.     (line 1581)
 * PREFETCH_SCHEDULE_BARRIER_P:           Flags.              (line  214)
 * PREINCREMENT_EXPR:                     Unary and Binary Expressions.
                                                              (line    6)
@@ -48862,8 +48871,8 @@ Concept Index
 * PRINT_OPERAND:                         Instruction Output. (line   96)
 * PRINT_OPERAND_ADDRESS:                 Instruction Output. (line  124)
 * PRINT_OPERAND_PUNCT_VALID_P:           Instruction Output. (line  117)
-* probe_stack instruction pattern:       Standard Names.     (line 1420)
-* probe_stack_address instruction pattern: Standard Names.   (line 1413)
+* probe_stack instruction pattern:       Standard Names.     (line 1428)
+* probe_stack_address instruction pattern: Standard Names.   (line 1421)
 * processor functional units:            Processor pipeline description.
                                                              (line    6)
 * processor pipeline description:        Processor pipeline description.
@@ -48878,7 +48887,7 @@ Concept Index
 * profiling, code generation:            Profiling.          (line    6)
 * program counter:                       Regs and Memory.    (line  362)
 * prologue:                              Function Entry.     (line    6)
-* prologue instruction pattern:          Standard Names.     (line 1511)
+* prologue instruction pattern:          Standard Names.     (line 1519)
 * PROMOTE_MODE:                          Storage Layout.     (line   88)
 * pseudo registers:                      Regs and Memory.    (line    9)
 * PSImode:                               Machine Modes.      (line   32)
@@ -49040,7 +49049,7 @@ Concept Index
                                                              (line    6)
 * relative costs:                        Costs.              (line    6)
 * RELATIVE_PREFIX_NOT_LINKDIR:           Driver.             (line  263)
-* reload_completed:                      Standard Names.     (line 1206)
+* reload_completed:                      Standard Names.     (line 1214)
 * reload_in instruction pattern:         Standard Names.     (line   99)
 * reload_in_progress:                    Standard Names.     (line   57)
 * reload_out instruction pattern:        Standard Names.     (line   99)
@@ -49053,14 +49062,14 @@ Concept Index
                                                              (line    6)
 * rest_of_decl_compilation:              Parsing pass.       (line   52)
 * rest_of_type_compilation:              Parsing pass.       (line   52)
-* restore_stack_block instruction pattern: Standard Names.   (line 1333)
+* restore_stack_block instruction pattern: Standard Names.   (line 1341)
 * restore_stack_function instruction pattern: Standard Names.
-                                                             (line 1333)
+                                                             (line 1341)
 * restore_stack_nonlocal instruction pattern: Standard Names.
-                                                             (line 1333)
+                                                             (line 1341)
 * RESULT_DECL:                           Declarations.       (line    6)
 * return:                                Side Effects.       (line   72)
-* return instruction pattern:            Standard Names.     (line 1179)
+* return instruction pattern:            Standard Names.     (line 1187)
 * return values in registers:            Scalar Return.      (line    6)
 * RETURN_ADDR_IN_PREVIOUS_FRAME:         Frame Layout.       (line  135)
 * RETURN_ADDR_OFFSET:                    Exception Handling. (line   60)
@@ -49145,15 +49154,15 @@ Concept Index
 * same_type_p:                           Types.              (line   88)
 * SAmode:                                Machine Modes.      (line  151)
 * sat_fract:                             Conversions.        (line   90)
-* satfractMN2 instruction pattern:       Standard Names.     (line  944)
-* satfractunsMN2 instruction pattern:    Standard Names.     (line  957)
+* satfractMN2 instruction pattern:       Standard Names.     (line  952)
+* satfractunsMN2 instruction pattern:    Standard Names.     (line  965)
 * satisfies_constraint_:                 C Constraint Interface.
                                                              (line   47)
 * SAVE_EXPR:                             Unary and Binary Expressions.
                                                              (line    6)
-* save_stack_block instruction pattern:  Standard Names.     (line 1333)
-* save_stack_function instruction pattern: Standard Names.   (line 1333)
-* save_stack_nonlocal instruction pattern: Standard Names.   (line 1333)
+* save_stack_block instruction pattern:  Standard Names.     (line 1341)
+* save_stack_function instruction pattern: Standard Names.   (line 1341)
+* save_stack_nonlocal instruction pattern: Standard Names.   (line 1341)
 * SBSS_SECTION_ASM_OP:                   Sections.           (line   76)
 * Scalar evolutions:                     Scalar evolutions.  (line    6)
 * scalars, returned as values:           Scalar Return.      (line    6)
@@ -49197,9 +49206,9 @@ Concept Index
 * SET_RATIO:                             Costs.              (line  194)
 * SET_SRC:                               Side Effects.       (line   69)
 * set_thread_pointerMODE instruction pattern: Standard Names.
-                                                             (line 1867)
+                                                             (line 1875)
 * SET_TYPE_STRUCTURAL_EQUALITY:          Types.              (line    6)
-* setmemM instruction pattern:           Standard Names.     (line  808)
+* setmemM instruction pattern:           Standard Names.     (line  816)
 * SETUP_FRAME_ADDRESSES:                 Frame Layout.       (line  102)
 * SF_SIZE:                               Type Layout.        (line  136)
 * SFmode:                                Machine Modes.      (line   69)
@@ -49212,7 +49221,7 @@ Concept Index
 * SHORT_FRACT_TYPE_SIZE:                 Type Layout.        (line   63)
 * SHORT_IMMEDIATES_SIGN_EXTEND:          Misc.               (line   87)
 * SHORT_TYPE_SIZE:                       Type Layout.        (line   16)
-* sibcall_epilogue instruction pattern:  Standard Names.     (line 1543)
+* sibcall_epilogue instruction pattern:  Standard Names.     (line 1551)
 * sibling call:                          Edges.              (line  122)
 * SIBLING_CALL_P:                        Flags.              (line  161)
 * SIG_ATOMIC_TYPE:                       Type Layout.        (line  252)
@@ -49227,7 +49236,7 @@ Concept Index
 * SImode:                                Machine Modes.      (line   37)
 * simple constraints:                    Simple Constraints. (line    6)
 * simple_return:                         Side Effects.       (line   86)
-* simple_return instruction pattern:     Standard Names.     (line 1195)
+* simple_return instruction pattern:     Standard Names.     (line 1203)
 * sincosM3 instruction pattern:          Standard Names.     (line  592)
 * sinM2 instruction pattern:             Standard Names.     (line  584)
 * SIZE_ASM_OP:                           Label Output.       (line   35)
@@ -49299,8 +49308,8 @@ Concept Index
 * STACK_POINTER_REGNUM and virtual registers: Regs and Memory.
                                                              (line   83)
 * stack_pointer_rtx:                     Frame Registers.    (line  104)
-* stack_protect_set instruction pattern: Standard Names.     (line 1877)
-* stack_protect_test instruction pattern: Standard Names.    (line 1887)
+* stack_protect_set instruction pattern: Standard Names.     (line 1885)
+* stack_protect_test instruction pattern: Standard Names.    (line 1895)
 * STACK_PUSH_CODE:                       Frame Layout.       (line   17)
 * STACK_REG_COVER_CLASS:                 Stack Registers.    (line   23)
 * STACK_REGS:                            Stack Registers.    (line   20)
@@ -49344,7 +49353,7 @@ Concept Index
 * STRING_CST:                            Constant expressions.
                                                              (line    6)
 * STRING_POOL_ADDRESS_P:                 Flags.              (line  165)
-* strlenM instruction pattern:           Standard Names.     (line  879)
+* strlenM instruction pattern:           Standard Names.     (line  887)
 * structure value address:               Aggregate Return.   (line    6)
 * STRUCTURE_SIZE_BOUNDARY:               Storage Layout.     (line  316)
 * structures, returning:                 Interface.          (line   10)
@@ -49402,34 +49411,34 @@ Concept Index
 * SYMBOL_REF_USED:                       Flags.              (line  197)
 * SYMBOL_REF_WEAK:                       Flags.              (line  202)
 * symbolic label:                        Sharing.            (line   20)
-* sync_addMODE instruction pattern:      Standard Names.     (line 1642)
-* sync_andMODE instruction pattern:      Standard Names.     (line 1642)
+* sync_addMODE instruction pattern:      Standard Names.     (line 1650)
+* sync_andMODE instruction pattern:      Standard Names.     (line 1650)
 * sync_compare_and_swapMODE instruction pattern: Standard Names.
-                                                             (line 1602)
-* sync_iorMODE instruction pattern:      Standard Names.     (line 1642)
-* sync_lock_releaseMODE instruction pattern: Standard Names. (line 1707)
+                                                             (line 1610)
+* sync_iorMODE instruction pattern:      Standard Names.     (line 1650)
+* sync_lock_releaseMODE instruction pattern: Standard Names. (line 1715)
 * sync_lock_test_and_setMODE instruction pattern: Standard Names.
-                                                             (line 1681)
-* sync_nandMODE instruction pattern:     Standard Names.     (line 1642)
-* sync_new_addMODE instruction pattern:  Standard Names.     (line 1674)
-* sync_new_andMODE instruction pattern:  Standard Names.     (line 1674)
-* sync_new_iorMODE instruction pattern:  Standard Names.     (line 1674)
-* sync_new_nandMODE instruction pattern: Standard Names.     (line 1674)
-* sync_new_subMODE instruction pattern:  Standard Names.     (line 1674)
-* sync_new_xorMODE instruction pattern:  Standard Names.     (line 1674)
-* sync_old_addMODE instruction pattern:  Standard Names.     (line 1657)
-* sync_old_andMODE instruction pattern:  Standard Names.     (line 1657)
-* sync_old_iorMODE instruction pattern:  Standard Names.     (line 1657)
-* sync_old_nandMODE instruction pattern: Standard Names.     (line 1657)
-* sync_old_subMODE instruction pattern:  Standard Names.     (line 1657)
-* sync_old_xorMODE instruction pattern:  Standard Names.     (line 1657)
-* sync_subMODE instruction pattern:      Standard Names.     (line 1642)
-* sync_xorMODE instruction pattern:      Standard Names.     (line 1642)
+                                                             (line 1689)
+* sync_nandMODE instruction pattern:     Standard Names.     (line 1650)
+* sync_new_addMODE instruction pattern:  Standard Names.     (line 1682)
+* sync_new_andMODE instruction pattern:  Standard Names.     (line 1682)
+* sync_new_iorMODE instruction pattern:  Standard Names.     (line 1682)
+* sync_new_nandMODE instruction pattern: Standard Names.     (line 1682)
+* sync_new_subMODE instruction pattern:  Standard Names.     (line 1682)
+* sync_new_xorMODE instruction pattern:  Standard Names.     (line 1682)
+* sync_old_addMODE instruction pattern:  Standard Names.     (line 1665)
+* sync_old_andMODE instruction pattern:  Standard Names.     (line 1665)
+* sync_old_iorMODE instruction pattern:  Standard Names.     (line 1665)
+* sync_old_nandMODE instruction pattern: Standard Names.     (line 1665)
+* sync_old_subMODE instruction pattern:  Standard Names.     (line 1665)
+* sync_old_xorMODE instruction pattern:  Standard Names.     (line 1665)
+* sync_subMODE instruction pattern:      Standard Names.     (line 1650)
+* sync_xorMODE instruction pattern:      Standard Names.     (line 1650)
 * SYSROOT_HEADERS_SUFFIX_SPEC:           Driver.             (line  177)
 * SYSROOT_SUFFIX_SPEC:                   Driver.             (line  172)
 * t-TARGET:                              Target Fragment.    (line    6)
 * table jump:                            Basic Blocks.       (line   67)
-* tablejump instruction pattern:         Standard Names.     (line 1268)
+* tablejump instruction pattern:         Standard Names.     (line 1276)
 * tag:                                   GTY Options.        (line   82)
 * tagging insns:                         Tagging Insns.      (line    6)
 * tail calls:                            Tail Calls.         (line    6)
@@ -49924,7 +49933,7 @@ Concept Index
 * TRAMPOLINE_SIZE:                       Trampolines.        (line   45)
 * trampolines for nested functions:      Trampolines.        (line    6)
 * TRANSFER_FROM_TRAMPOLINE:              Trampolines.        (line  111)
-* trap instruction pattern:              Standard Names.     (line 1553)
+* trap instruction pattern:              Standard Names.     (line 1561)
 * tree <1>:                              Macros and Functions.
                                                              (line    6)
 * tree:                                  Tree overview.      (line    6)
@@ -49976,7 +49985,7 @@ Concept Index
 * TRUNC_MOD_EXPR:                        Unary and Binary Expressions.
                                                              (line    6)
 * truncate:                              Conversions.        (line   38)
-* truncMN2 instruction pattern:          Standard Names.     (line  922)
+* truncMN2 instruction pattern:          Standard Names.     (line  930)
 * TRUTH_AND_EXPR:                        Unary and Binary Expressions.
                                                              (line    6)
 * TRUTH_ANDIF_EXPR:                      Unary and Binary Expressions.
@@ -50133,8 +50142,8 @@ Concept Index
 * unspec_volatile <1>:                   Constant Definitions.
                                                              (line   99)
 * unspec_volatile:                       Side Effects.       (line  300)
-* untyped_call instruction pattern:      Standard Names.     (line 1164)
-* untyped_return instruction pattern:    Standard Names.     (line 1228)
+* untyped_call instruction pattern:      Standard Names.     (line 1172)
+* untyped_return instruction pattern:    Standard Names.     (line 1236)
 * UPDATE_PATH_HOST_CANONICALIZE (PATH):  Filesystem.         (line   59)
 * update_ssa:                            SSA.                (line   74)
 * update_stmt <1>:                       SSA Operands.       (line    6)
@@ -50306,7 +50315,7 @@ Concept Index
 * WHILE_STMT:                            Statements for C++. (line    6)
 * whopr:                                 LTO.                (line    6)
 * WIDEST_HARDWARE_FP_SIZE:               Type Layout.        (line  154)
-* window_save instruction pattern:       Standard Names.     (line 1524)
+* window_save instruction pattern:       Standard Names.     (line 1532)
 * WINT_TYPE:                             Type Layout.        (line  222)
 * word_mode:                             Machine Modes.      (line  359)
 * WORD_REGISTER_OPERATIONS:              Misc.               (line   54)
@@ -50334,7 +50343,7 @@ Concept Index
 * XVECLEN:                               Accessors.          (line   44)
 * XWINT:                                 Accessors.          (line    6)
 * zero_extend:                           Conversions.        (line   28)
-* zero_extendMN2 instruction pattern:    Standard Names.     (line  932)
+* zero_extendMN2 instruction pattern:    Standard Names.     (line  940)
 * zero_extract:                          Bit-Fields.         (line   30)
 * zero_extract, canonicalization of:     Insn Canonicalizations.
                                                              (line   88)
@@ -50565,160 +50574,160 @@ Node: Define Constraints924967
 Node: C Constraint Interface931754
 Node: Standard Names935395
 Ref: shift patterns958549
-Ref: prologue instruction pattern1003334
-Ref: window_save instruction pattern1003827
-Ref: epilogue instruction pattern1004102
-Node: Pattern Ordering1021673
-Node: Dependent Patterns1022909
-Node: Jump Patterns1024529
-Ref: Jump Patterns-Footnote-11026673
-Node: Looping Patterns1026719
-Node: Insn Canonicalizations1031447
-Node: Expander Definitions1036038
-Node: Insn Splitting1044250
-Node: Including Patterns1053852
-Node: Peephole Definitions1055632
-Node: define_peephole1056885
-Node: define_peephole21063216
-Node: Insn Attributes1066282
-Node: Defining Attributes1067464
-Ref: define_enum_attr1070952
-Node: Expressions1071987
-Node: Tagging Insns1078736
-Node: Attr Example1083089
-Node: Insn Lengths1085463
-Node: Constant Attributes1088522
-Node: Mnemonic Attribute1089698
-Node: Delay Slots1091217
-Node: Processor pipeline description1094440
-Ref: Processor pipeline description-Footnote-11113253
-Node: Conditional Execution1113575
-Node: Define Subst1117055
-Node: Define Subst Example1119089
-Node: Define Subst Pattern Matching1122083
-Node: Define Subst Output Template1123308
-Node: Constant Definitions1125378
-Ref: define_enum1129160
-Node: Iterators1129648
-Node: Mode Iterators1130226
-Node: Defining Mode Iterators1131204
-Node: Substitutions1132698
-Node: Examples1134939
-Node: Code Iterators1136387
-Node: Int Iterators1138666
-Node: Subst Iterators1141109
-Node: Target Macros1142801
-Node: Target Structure1145889
-Node: Driver1148004
-Node: Run-time Target1166814
-Node: Per-Function Data1176512
-Node: Storage Layout1179277
-Node: Type Layout1205549
-Node: Registers1220876
-Node: Register Basics1221850
-Node: Allocation Order1227355
-Node: Values in Registers1229801
-Node: Leaf Functions1237290
-Node: Stack Registers1240148
-Node: Register Classes1241420
-Node: Old Constraints1272412
-Node: Stack and Calling1279564
-Node: Frame Layout1280098
-Node: Exception Handling1290978
-Node: Stack Checking1297200
-Node: Frame Registers1302013
-Node: Elimination1310272
-Node: Stack Arguments1314501
-Node: Register Arguments1321684
-Node: Scalar Return1341998
-Node: Aggregate Return1348084
-Node: Caller Saves1352294
-Node: Function Entry1353472
-Node: Profiling1364576
-Node: Tail Calls1366275
-Node: Stack Smashing Protection1368178
-Node: Varargs1369806
-Node: Trampolines1376502
-Node: Library Calls1382545
-Node: Addressing Modes1387229
-Node: Anchored Addresses1408216
-Node: Condition Code1410865
-Node: CC0 Condition Codes1413192
-Node: MODE_CC Condition Codes1416438
-Node: Costs1422887
-Node: Scheduling1439356
-Node: Sections1459302
-Node: PIC1475000
-Node: Assembler Format1477060
-Node: File Framework1478198
-Ref: TARGET_HAVE_SWITCHABLE_BSS_SECTIONS1485139
-Node: Data Output1488404
-Node: Uninitialized Data1496180
-Node: Label Output1501191
-Node: Initialization1524159
-Node: Macros for Initialization1530121
-Node: Instruction Output1536844
-Node: Dispatch Tables1547473
-Node: Exception Region Output1551857
-Node: Alignment Output1558540
-Node: Debugging Info1563118
-Node: All Debuggers1563788
-Node: DBX Options1566643
-Node: DBX Hooks1572092
-Node: File Names and DBX1573401
-Node: SDB and DWARF1575513
-Node: VMS Debug1581585
-Node: Floating Point1582172
-Node: Mode Switching1586648
-Node: Target Attributes1590644
-Node: Emulated TLS1600914
-Node: MIPS Coprocessors1604304
-Node: PCH Target1605601
-Node: C++ ABI1607443
-Node: Named Address Spaces1612235
-Node: Misc1617174
-Ref: TARGET_SHIFT_TRUNCATION_MASK1623916
-Node: Host Config1672430
-Node: Host Common1673498
-Node: Filesystem1675877
-Node: Host Misc1679992
-Node: Fragments1682441
-Node: Target Fragment1683636
-Node: Host Fragment1694269
-Node: Collect21694509
-Node: Header Dirs1697145
-Node: Type Information1698568
-Node: GTY Options1701848
-Node: Inheritance and GTY1716355
-Ref: Inheritance and GTY-Footnote-11717918
-Node: User GC1718186
-Node: GGC Roots1721921
-Node: Files1722637
-Node: Invoking the garbage collector1725344
-Node: Troubleshooting1726847
-Node: Plugins1727923
-Node: Plugins loading1729041
-Node: Plugin API1729910
-Node: Plugins pass1737574
-Node: Plugins GC1739543
-Node: Plugins description1741203
-Node: Plugins attr1741738
-Node: Plugins recording1744009
-Node: Plugins gate1744859
-Node: Plugins tracking1745450
-Node: Plugins building1746038
-Node: LTO1747827
-Node: LTO Overview1748688
-Node: LTO object file layout1754520
-Node: IPA1759152
-Node: WHOPR1768117
-Node: Internal flags1772808
-Node: Funding1774220
-Node: GNU Project1776703
-Node: Copying1777352
-Node: GNU Free Documentation License1814883
-Node: Contributors1840023
-Node: Option Index1877898
-Node: Concept Index1878775
+Ref: prologue instruction pattern1003723
+Ref: window_save instruction pattern1004216
+Ref: epilogue instruction pattern1004491
+Node: Pattern Ordering1022062
+Node: Dependent Patterns1023298
+Node: Jump Patterns1024918
+Ref: Jump Patterns-Footnote-11027062
+Node: Looping Patterns1027108
+Node: Insn Canonicalizations1031836
+Node: Expander Definitions1036427
+Node: Insn Splitting1044639
+Node: Including Patterns1054241
+Node: Peephole Definitions1056021
+Node: define_peephole1057274
+Node: define_peephole21063605
+Node: Insn Attributes1066671
+Node: Defining Attributes1067853
+Ref: define_enum_attr1071341
+Node: Expressions1072376
+Node: Tagging Insns1079125
+Node: Attr Example1083478
+Node: Insn Lengths1085852
+Node: Constant Attributes1088911
+Node: Mnemonic Attribute1090087
+Node: Delay Slots1091606
+Node: Processor pipeline description1094829
+Ref: Processor pipeline description-Footnote-11113642
+Node: Conditional Execution1113964
+Node: Define Subst1117444
+Node: Define Subst Example1119478
+Node: Define Subst Pattern Matching1122472
+Node: Define Subst Output Template1123697
+Node: Constant Definitions1125767
+Ref: define_enum1129549
+Node: Iterators1130037
+Node: Mode Iterators1130615
+Node: Defining Mode Iterators1131593
+Node: Substitutions1133087
+Node: Examples1135328
+Node: Code Iterators1136776
+Node: Int Iterators1139055
+Node: Subst Iterators1141498
+Node: Target Macros1143190
+Node: Target Structure1146278
+Node: Driver1148393
+Node: Run-time Target1167203
+Node: Per-Function Data1176901
+Node: Storage Layout1179666
+Node: Type Layout1205938
+Node: Registers1221265
+Node: Register Basics1222239
+Node: Allocation Order1227744
+Node: Values in Registers1230190
+Node: Leaf Functions1237679
+Node: Stack Registers1240537
+Node: Register Classes1241809
+Node: Old Constraints1272801
+Node: Stack and Calling1279953
+Node: Frame Layout1280487
+Node: Exception Handling1291367
+Node: Stack Checking1297589
+Node: Frame Registers1302402
+Node: Elimination1310661
+Node: Stack Arguments1314890
+Node: Register Arguments1322073
+Node: Scalar Return1342387
+Node: Aggregate Return1348473
+Node: Caller Saves1352683
+Node: Function Entry1353861
+Node: Profiling1364965
+Node: Tail Calls1366664
+Node: Stack Smashing Protection1368567
+Node: Varargs1370195
+Node: Trampolines1376891
+Node: Library Calls1382934
+Node: Addressing Modes1387618
+Node: Anchored Addresses1408605
+Node: Condition Code1411254
+Node: CC0 Condition Codes1413581
+Node: MODE_CC Condition Codes1416827
+Node: Costs1423276
+Node: Scheduling1439745
+Node: Sections1459691
+Node: PIC1475389
+Node: Assembler Format1477449
+Node: File Framework1478587
+Ref: TARGET_HAVE_SWITCHABLE_BSS_SECTIONS1485528
+Node: Data Output1488793
+Node: Uninitialized Data1496569
+Node: Label Output1501580
+Node: Initialization1524548
+Node: Macros for Initialization1530510
+Node: Instruction Output1537233
+Node: Dispatch Tables1547862
+Node: Exception Region Output1552246
+Node: Alignment Output1558929
+Node: Debugging Info1563507
+Node: All Debuggers1564177
+Node: DBX Options1567032
+Node: DBX Hooks1572481
+Node: File Names and DBX1573790
+Node: SDB and DWARF1575902
+Node: VMS Debug1581974
+Node: Floating Point1582561
+Node: Mode Switching1587037
+Node: Target Attributes1591033
+Node: Emulated TLS1601303
+Node: MIPS Coprocessors1604693
+Node: PCH Target1605990
+Node: C++ ABI1607832
+Node: Named Address Spaces1612624
+Node: Misc1617563
+Ref: TARGET_SHIFT_TRUNCATION_MASK1624305
+Node: Host Config1672819
+Node: Host Common1673887
+Node: Filesystem1676266
+Node: Host Misc1680381
+Node: Fragments1682830
+Node: Target Fragment1684025
+Node: Host Fragment1694658
+Node: Collect21694898
+Node: Header Dirs1697534
+Node: Type Information1698957
+Node: GTY Options1702237
+Node: Inheritance and GTY1716744
+Ref: Inheritance and GTY-Footnote-11718307
+Node: User GC1718575
+Node: GGC Roots1722310
+Node: Files1723026
+Node: Invoking the garbage collector1725733
+Node: Troubleshooting1727236
+Node: Plugins1728312
+Node: Plugins loading1729430
+Node: Plugin API1730299
+Node: Plugins pass1737963
+Node: Plugins GC1739932
+Node: Plugins description1741592
+Node: Plugins attr1742127
+Node: Plugins recording1744398
+Node: Plugins gate1745248
+Node: Plugins tracking1745839
+Node: Plugins building1746427
+Node: LTO1748216
+Node: LTO Overview1749077
+Node: LTO object file layout1754909
+Node: IPA1759541
+Node: WHOPR1768506
+Node: Internal flags1773197
+Node: Funding1774609
+Node: GNU Project1777092
+Node: Copying1777741
+Node: GNU Free Documentation License1815272
+Node: Contributors1840412
+Node: Option Index1878287
+Node: Concept Index1879164
 
 End Tag Table
